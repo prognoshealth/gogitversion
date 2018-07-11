@@ -71,7 +71,11 @@ This technique allows you to get very detailed information about the current cod
 ## Expected Usage
 
 During local development fall back upon `git describe --tags --dirty` to provide
-versioning information.
+versioning information... by doing nothing except using `git tag`'s and go as you normally would.
+
+```sh
+> go build
+```
 
 When creating a release build embed the version as follows:
 
