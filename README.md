@@ -1,7 +1,7 @@
 # gogitversion
 Go package to assist in embedding git tag based versioning into an application
 
-<img src="gogitit.png" width="600px" alt="gogitit logo created at https://pablo.buffer.com/" />
+<img src="gogitit.png" width="100%" alt="gogitit logo created at https://pablo.buffer.com/" />
 
 ## Project Health Status
 
@@ -70,3 +70,11 @@ This technique allows you to get very detailed information about the current cod
 
 ## Expected Usage
 
+During local development fall back upon `git describe --tags --dirty` to provide
+versioning information.
+
+When creating a release build embed the version as follows:
+
+```sh
+> go build -ldflags "-X github.com/prognosai/gogitversion.version=$(git describe --tags --dirty)"
+```
