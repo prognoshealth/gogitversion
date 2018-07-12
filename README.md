@@ -29,7 +29,7 @@ func main() {
 ```
 
 ```sh
-go build -ldflags "-X github.com/prognosai/gogitversion.version=0.0.1"
+> go build -ldflags "-X github.com/prognosai/gogitversion.version=0.0.1"
 ```
 
 ```sh
