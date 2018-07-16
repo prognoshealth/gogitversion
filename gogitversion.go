@@ -18,6 +18,7 @@ package gogitversion
 
 import (
 	"os/exec"
+	"strings"
 )
 
 var version string
@@ -36,7 +37,7 @@ func gitDescribeVersion() string {
 		return "unknown"
 	}
 
-	return string(out)
+	return strings.TrimSpace(string(out))
 }
 
 // Get the version that has been set with `-ldflags "-X ..."` or try and use git describe to find it.` Returns 'unknown'
