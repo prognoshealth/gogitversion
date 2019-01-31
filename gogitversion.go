@@ -2,10 +2,10 @@
 // no version is embedded it tries to find one using `git describe` and pulling
 // it out of the found tags.
 //
-// The version gets embedded using `-ldflags` and setting `github.com/prognosai/gogitversion.version`.
+// The version gets embedded using `-ldflags` and setting `github.com/prognoshealth/gogitversion.version`.
 // For example:
 //
-//   go install -ldflags "-X github.com/prognosai/gogitversion.version=0.0.1" ./...
+//   go install -ldflags "-X github.com/prognoshealth/gogitversion.version=0.0.1" ./...
 //
 // When no version is embedded git is used to try and extract the version from
 // the repository tags with the command:

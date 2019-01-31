@@ -5,12 +5,12 @@ Go package to assist in embedding git tag based versioning into an application
 
 ## Project Health Status
 
-[![CircleCI](https://circleci.com/gh/prognosai/gogitversion.svg?style=shield)](https://circleci.com/gh/prognosai/gogitversion)
+[![CircleCI](https://circleci.com/gh/prognoshealth/gogitversion.svg?style=shield)](https://circleci.com/gh/prognoshealth/gogitversion)
 
 ## Quickstart
 
 ```sh
-> go get https://github.com/prognosai/gogitversion
+> go get https://github.com/prognoshealth/gogitversion
 ```
 
 ```go
@@ -18,7 +18,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/prognosai/gogitversion"
+	"github.com/prognoshealth/gogitversion"
 )
 
 func main() {
@@ -29,7 +29,7 @@ func main() {
 ```
 
 ```sh
-> go build -ldflags "-X github.com/prognosai/gogitversion.version=0.0.1"
+> go build -ldflags "-X github.com/prognoshealth/gogitversion.version=0.0.1"
 ```
 
 ```sh
@@ -80,5 +80,5 @@ versioning information... by doing nothing except using `git tag`'s and go as yo
 When creating a release build embed the version as follows:
 
 ```sh
-> go build -ldflags "-X github.com/prognosai/gogitversion.version=$(git describe --tags --dirty)"
+> go build -ldflags "-X github.com/prognoshealth/gogitversion.version=$(git describe --tags --dirty)"
 ```
