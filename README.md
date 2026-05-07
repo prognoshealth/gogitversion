@@ -5,7 +5,7 @@ Go package to assist in embedding git tag based versioning into an application
 
 ## Project Health Status
 
-[![CircleCI](https://circleci.com/gh/prognoshealth/gogitversion.svg?style=shield)](https://circleci.com/gh/prognoshealth/gogitversion)
+[![CI](https://github.com/prognoshealth/gogitversion/actions/workflows/ci.yml/badge.svg)](https://github.com/prognoshealth/gogitversion/actions/workflows/ci.yml)
 
 ## Quickstart
 
