@@ -40,29 +40,31 @@ version: 0.0.1
 ## Git Describe Versioning
 
 When no embedded version is provided gogitversion falls back upon a versioning
-technique using `git describe --tags --dirty`.
+technique using `git describe --tags --dirty --match=v*`.
 
 For more details on `git describe` check out: https://git-scm.com/docs/git-describe
 
-This versioning technique will reference the most recent tag set using `git tag`.
+This versioning technique will reference the most recent tag matching `v*`. Tags
+that do not start with `v` (for example `demo-*` tags placed on demo commits)
+are ignored, so only intentional version tags drive the version string.
 
 For example:
 
 ```sh
-# When the most recent tag matches the most recent commit with a clean working tree
-> git describe --tags --dirty
+# When the most recent v* tag matches the most recent commit with a clean working tree
+> git describe --tags --dirty --match=v*
 v2018.07.03.115146
 
-# When the most recent tag matches the most recent commit with a dirty working tree
-> git describe --tags --dirty
+# When the most recent v* tag matches the most recent commit with a dirty working tree
+> git describe --tags --dirty --match=v*
 v2018.07.03.115146-dirty
 
-# When the most recent tag is 4 commits behind the most recent commit with a clean working tree
-> git describe --tags --dirty
+# When the most recent v* tag is 4 commits behind the most recent commit with a clean working tree
+> git describe --tags --dirty --match=v*
 v2018.07.03.115146-4-gc3a421b
 
-# When the most recent tag is 4 commits behind the most recent commit with a dirty working tree
-> git describe --tags --dirty
+# When the most recent v* tag is 4 commits behind the most recent commit with a dirty working tree
+> git describe --tags --dirty --match=v*
 v2018.07.03.115146-7-gc3a421b-dirty
 ```
 
@@ -70,8 +72,8 @@ This technique allows you to get very detailed information about the current cod
 
 ## Expected Usage
 
-During local development fall back upon `git describe --tags --dirty` to provide
-versioning information... by doing nothing except using `git tag`'s and go as you normally would.
+During local development fall back upon `git describe --tags --dirty --match=v*` to provide
+versioning information... by doing nothing except using `git tag`'s (with a `v` prefix) and go as you normally would.
 
 ```sh
 > go build
@@ -80,5 +82,5 @@ versioning information... by doing nothing except using `git tag`'s and go as yo
 When creating a release build embed the version as follows:
 
 ```sh
-> go build -ldflags "-X github.com/prognoshealth/gogitversion.version=$(git describe --tags --dirty)"
+> go build -ldflags "-X github.com/prognoshealth/gogitversion.version=$(git describe --tags --dirty --match=v*)"
 ```

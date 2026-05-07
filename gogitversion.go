@@ -10,7 +10,10 @@
 // When no version is embedded git is used to try and extract the version from
 // the repository tags with the command:
 //
-//   git describe --tags --dirty
+//   git describe --tags --dirty --match=v*
+//
+// Only tags matching `v*` are considered, so non-version tags (for example
+// `demo-*` tags applied to demo commits) are ignored.
 //
 // If it fails for any reason the version 'unknown' is returned.
 //
@@ -32,7 +35,7 @@ func gitDescribeVersion() string {
 	}
 
 	/* #nosec */
-	out, err := exec.Command(gitPath, "describe", "--tags", "--dirty").Output()
+	out, err := exec.Command(gitPath, "describe", "--tags", "--dirty", "--match=v*").Output()
 	if err != nil {
 		return "unknown"
 	}
